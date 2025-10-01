@@ -32,7 +32,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 21.0"
 
-  name               = "eks-cluster"
+  name               = "my-eks-cluster"
   kubernetes_version = "1.33"
 
   # Optional: Adds the current caller identity as an administrator via cluster access entry
@@ -40,7 +40,6 @@ module "eks" {
 
   vpc_id                   = module.vpc.vpc_id
   subnet_ids               = module.vpc.private_subnets
-  control_plane_subnet_ids = ["subnet-xyzde987", "subnet-slkjf456", "subnet-qeiru789"]
 
   # EKS Managed Node Group(s)
   eks_managed_node_groups = {
